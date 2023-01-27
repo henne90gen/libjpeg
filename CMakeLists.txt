@@ -30,11 +30,11 @@ set(SRC jmemnobs.c jaricom.c jcapimin.c jcapistd.c jcarith.c jccoefct.c jccolor.
 
 set(JPEG_LIB_NAME jpeg)
 add_library(${JPEG_LIB_NAME} ${SRC} ${HEADERS})
-target_include_directories(${JPEG_LIB_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+target_include_directories(${JPEG_LIB_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR})
 
 set(JPEG_LIB_NAME_STATIC jpegstatic)
 add_library(${JPEG_LIB_NAME_STATIC} STATIC ${SRC} ${HEADERS})
-target_include_directories(${JPEG_LIB_NAME_STATIC} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+target_include_directories(${JPEG_LIB_NAME_STATIC} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR})
 
 if (BUILD_EXECUTABLES)
     add_executable(cjpeg cdjpeg.c cjpeg.c rdbmp.c rdgif.c rdppm.c rdrle.c rdtarga.c
